@@ -1,23 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="shortcut icon" href="favicon.ico" >
-   <link rel="icon" type="image/gif" href="animated_favicon1.gif" >
-</head>
-<body>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button class="btn btn-primary"  id="startGame">Start Game</button>
-            <button class="btn btn-primary"  id="calculate" disabled>Calculate Score</button>
+<html ng-app="shoppingCart">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Shopping Cart</title>
+
+        <!-- Icons-->
+        <link rel="icon" href="favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <!-- Icons-->
+
+         <!-- bower:css -->
+         <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+         <link rel="stylesheet" href="bower_components/angularjs-datepicker/dist/angular-datepicker.min.css" />
+         <link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.css" />
+         <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css" />
+         <link rel="stylesheet" href="bower_components/nz-toggle/dist/nz-toggle.css" />
+         <link rel="stylesheet" href="bower_components/ngprogress/ngProgress.css" />
+         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+         <!-- endbower -->
+        
+        <!-- IMPORTANT PLEASE DONT DELETE BELOW CSS INCLUDE COMMENTS. THESE WILL BE REQUIRED WHILE DEBUGGING.
+        UI/UX DEVELOPERS - YOU MAY UNCOMMENT A FILE HERE WHILE DEBUGGING AND COMMENT THE
+        CORRESPONDING FILE IN sas/assets.py. BUT COMMENT/UNCOMMENT THEM BACK AFTER DEBUGGING IS OVER -->
+
+        <!-- File input related-->
+        <!--<link rel="stylesheet" type="text/css" href="{% static 'lib/node_modules/bootstrap/dist/css/bootstrap.min.css' %}">-->
+        <!--<link rel="stylesheet" type="text/css" href="{% static 'lib/node_modules/jasny-bootstrap/dist/css/jasny-bootstrap.min.css' %}">-->
+        <!--<link rel="stylesheet" type="text/css" href="{% static 'assets/css/fileinput/fileinput.min.css' %}" />-->
+        <!-- File input related-->
+
+        <!-- build:css(.tmp) styles/manualvendor.css -- >
+            <!-- link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" / -->
+        <!-- endbuild -->
+
+        <!-- style.css should be last CSS file include -->
+       <!--  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}?v=0.1.2" /> -->
+        <!-- style.css should be last CSS file include -->
+
+        <base href="/">
+    </head>
+    <body data-ng-controller="AppController" ng-cloak>
+        <div class="mainPageWrapper">
+            <div ui-view="header"></div>
+            <div id="contentBox" class="row-fluid">
+                <div ui-view="sidebar"></div>
+                <div ui-view="content">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div ui-view="footer"></div>
+            <div class="clearfix"></div>
         </div>
-    </div>
     
-    <div  class="form-horizontal" id="game"></div>
-    
-    <div class="col-sm-offset-2 col-sm-10" id="scores"><h2>Scoreboard</h2><h4>No scores yet</h4></div>
-    
-    <script src="js/app.js" type="text/javascript"></script>
-</body>
+        <!-- bower:js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-base64-upload/src/angular-base64-upload.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/blob-polyfill/Blob.js"></script>
+        <script src="bower_components/file-saver.js/FileSaver.js"></script>
+        <script src="bower_components/angular-file-saver/dist/angular-file-saver.bundle.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+        <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="bower_components/angular-sweetalert/SweetAlert.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-utils-pagination/dirPagination.js"></script>
+        <script src="bower_components/angularjs-datepicker/dist/angular-datepicker.min.js"></script>
+        <script src="bower_components/angularjs-slider/dist/rzslider.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/bootbox/bootbox.js"></script>
+        <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+        <script src="bower_components/lodash/lodash.js"></script>
+        <script src="bower_components/ngstorage/ngStorage.js"></script>
+        <script src="bower_components/nz-toggle/dist/nz-toggle.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/ngprogress/build/ngprogress.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/ngMask/dist/ngMask.js"></script>
+        <!-- endbower -->
+
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/shared/index.js"></script>
+
+
+
+        <script type="text/javascript" src="js/shared/controller/index.js"></script>
+        <script type="text/javascript" src="js/shared/controller/headerController.js"></script>
+        <script type="text/javascript" src="js/shared/controller/footerController.js"></script>
+
+        <script type="text/javascript" src="js/dashboard/index.js"></script>
+        <script type="text/javascript" src="js/dashboard/controller/dashboardController.js"></script>
+
+    </body>
 </html>
